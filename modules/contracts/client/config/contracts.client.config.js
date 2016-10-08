@@ -19,7 +19,7 @@ angular.module('contracts').run(['Menus',
 
     // Add the dropdown create item
     Menus.addSubMenuItem('topbar', 'contracts', {
-       title: 'Create Contract',
+      title: 'Create Contract',
       state: 'contracts.create',
       roles: ['user']
     });
