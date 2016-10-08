@@ -39,3 +39,22 @@ a:hover .header-profile-image {
 .navbar-brand {
     font-family: 'Montserrat', sans-serif;
 }
+
+.banner {
+    height: 500px;
+    background-image: url(/modules/core/client/img/start.png);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.banner--inner {    
+    max-width: 1200px;
+    padding: 80px 40px;
+}
+
+.lead {
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    font-size: 90px;
+    text-align: center;
+}
