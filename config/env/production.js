@@ -9,7 +9,7 @@ module.exports = {
   port: process.env.PORT || 8443,
   db: {
     // uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/mean',
-    uri: "mongodb://guru:diablo@ds033966.mlab.com:33966/cligurutest",
+    uri: "mongodb://adm:cliguru@ds139197.mlab.com:39197/zs-test",
     options: {
       user: '',
       pass: ''

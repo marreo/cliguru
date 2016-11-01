@@ -5,7 +5,7 @@ var defaultEnvConfig = require('./default');
 module.exports = {
   db: {
     // uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/mean-dev',
-    uri: "mongodb://guru:diablo@ds033966.mlab.com:33966/cligurutest",
+    uri: "mongodb://adm:cliguru@ds139197.mlab.com:39197/zs-test",
     options: {
       user: '',
       pass: ''
@@ -46,8 +46,8 @@ module.exports = {
     callbackURL: '/api/auth/twitter/callback'
   },
   google: {
-    clientID: process.env.GOOGLE_ID || 'APP_ID',
-    clientSecret: process.env.GOOGLE_SECRET || 'APP_SECRET',
+    clientID: process.env.GOOGLE_ID || '155453427694-76mqjb9kb5dr1cdrlae1bu7epjolfmnf.apps.googleusercontent.com',
+    clientSecret: process.env.GOOGLE_SECRET || 'DpUCnWeeuWIJ6BZcHouWpqY-',
     callbackURL: '/api/auth/google/callback'
   },
   linkedin: {
