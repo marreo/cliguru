@@ -2,6 +2,7 @@
 
 .content {
   padding-left: 220px;
+  padding-top: 75px;
 }
 .undecorated-link:hover {
   text-decoration: none;
