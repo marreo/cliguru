@@ -1,10 +1,15 @@
 'use strict';
 
-var defaultEnvConfig = require('./default');
-
 module.exports = {
+  secure: {
+    ssl: true,
+    privateKey: './config/sslcerts/key.pem',
+    certificate: './config/sslcerts/cert.pem'
+  },
+  port: process.env.PORT || 8443,
   db: {
-    uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/mean-test',
+    // uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/mean',
+    uri: "mongodb://adm:cliguru@ds139197.mlab.com:39197/zs-test",
     options: {
       user: '',
       pass: ''
@@ -20,20 +25,16 @@ module.exports = {
       // Stream defaults to process.stdout
       // Uncomment/comment to toggle the logging to a log on the file system
       stream: {
-        directoryPath: process.cwd(),
-        fileName: 'access.log',
+        directoryPath: process.env.LOG_DIR_PATH || process.cwd(),
+        fileName: process.env.LOG_FILE || 'access.log',
         rotatingLogs: { // for more info on rotating logs - https://github.com/holidayextras/file-stream-rotator#usage
-          active: false, // activate to use rotating logs 
-          fileName: 'access-%DATE%.log', // if rotating logs are active, this fileName setting will be used
-          frequency: 'daily',
-          verbose: false
+          active: process.env.LOG_ROTATING_ACTIVE === 'true' ? true : false, // activate to use rotating logs 
+          fileName: process.env.LOG_ROTATING_FILE || 'access-%DATE%.log', // if rotating logs are active, this fileName setting will be used
+          frequency: process.env.LOG_ROTATING_FREQUENCY || 'daily',
+          verbose: process.env.LOG_ROTATING_VERBOSE === 'true' ? true : false
         }
       }
     }
-  },
-  port: process.env.PORT || 3001,
-  app: {
-    title: defaultEnvConfig.app.title + ' - Test Environment'
   },
   facebook: {
     clientID: process.env.FACEBOOK_ID || 'APP_ID',
@@ -64,7 +65,7 @@ module.exports = {
     clientID: process.env.PAYPAL_ID || 'CLIENT_ID',
     clientSecret: process.env.PAYPAL_SECRET || 'CLIENT_SECRET',
     callbackURL: '/api/auth/paypal/callback',
-    sandbox: true
+    sandbox: false
   },
   mailer: {
     from: process.env.MAILER_FROM || 'MAILER_FROM',
@@ -99,7 +100,5 @@ module.exports = {
         roles: ['user', 'admin']
       }
     }
-  },
-  // This config is set to true during grunt coverage
-  coverage: process.env.COVERAGE || false
+  }
 };
